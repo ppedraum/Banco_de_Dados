@@ -57,11 +57,52 @@ values (2, "Cristiane Pavei Fernandes", "Centro, rua Aranha, 397", "Criciúma", 
 insert into cliente(codCliente, nome, endereco, cidade, UF, telefone, CPF, RG)
 values (3, "Claubert Claubert", "Próspera, rua Pedregulho, 909", "Criciúma", "SC", 5548998085828, 07654178971, 13245768); 
 
-insert into conta(nConta, tipoConta, saldoConta, nAgencia, codCliente)/*FKs: CLiente Pedro, Agência Centro*/
+insert into conta(nConta, tipoConta, saldoConta, nAgencia, codCliente)/*FKs: Pedro, Centro*/
 values(1, "Normal", 322.56, 1, 1);
 
-insert into conta(nConta, tipoConta, saldoConta, nAgencia, codCliente)/*FKs: Cliente Cris, Agência Próspera*/
+insert into conta(nConta, tipoConta, saldoConta, nAgencia, codCliente)/*FKs: Cris, Próspera*/
 values(2, "Premium", 3456.97, 2, 2);
 
-insert into conta(nConta, tipoConta, saldoConta, nAgencia, codCliente)/*FKs: Cliente Claubert, Agência Rio Maina*/
+insert into conta(nConta, tipoConta, saldoConta, nAgencia, codCliente)/*FKs: Claubert, Rio Maina*/
 values(3, "Ultra", 3456222.60, 3, 3);
+
+create table gerente(
+codGerente int(5) not null,
+nome varchar(50) not null,
+cargo varchar(50) not null,
+salario float(10.2) not null,
+primary key (codGerente)
+);
+
+alter table gerente add telefone bigint(15) not null;
+alter table agencia add codGerente int(5) not null;
+
+insert into gerente(codGerente, nome, cargo, salario, telefone)
+values (1, "Carlos", "Gerente Contas", 3000.00, 1234);
+
+insert into gerente(codGerente, nome, cargo, salario, telefone)
+values (2, "Ana Maria", "Gerente Aplicação", 3500.00, 5678);
+
+insert into gerente(codGerente, nome, cargo, salario, telefone)
+values (3, "Antônio", "Gerente FGTS", 3000.00, 6789);
+
+update gerente /*fazer update em atributos específicos*/
+set telefone = 1122, /*coluna*/
+salario = 3400.00 /*coluna*/
+where codGerente = 2; /*onde a primary key é igual a 2*/ /*linha*/
+
+update gerente
+set telefone = 9100
+where codGerente = 1;
+
+update gerente
+set salario = 3000
+where codGerente = 2;
+
+alter table gerente add atividade varchar(20) not null;
+
+update gerente
+set atividade = "ativo"; /*Sem restrição -> Todos ganham o valor*/
+/*where codGerente in (1, 2, 3);*/
+
+delete from gerente where codGerente = 3; /*Deletar na tabela gerente, a linha com a PK = 3*/
