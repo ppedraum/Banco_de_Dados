@@ -106,3 +106,9 @@ set atividade = "ativo"; /*Sem restrição -> Todos ganham o valor*/
 /*where codGerente in (1, 2, 3);*/
 
 delete from gerente where codGerente = 3; /*Deletar na tabela gerente, a linha com a PK = 3*/
+
+select nome, telefone from cliente; /*Selecionar certos atributos de uma tabela (colunas)*/
+
+select * from cliente where codCliente = 1; /*Selecionar uma linha específica inteira*/
+
+select telefone from cliente where codCliente = 1; /*Selecionar uma linha e uma coluna específica (valor específico)*/
