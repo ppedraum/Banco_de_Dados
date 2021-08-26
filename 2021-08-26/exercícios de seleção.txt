@@ -1,0 +1,15 @@
+a)select * from agencia;
+b)select nomeAgencia, telefone from agencia;
+c)select * from agencia where nAgencia=2;
+d)select * from cliente;
+e)select nome, endereco, cidade from cliente;
+f)select nome, telefone from cliente where codCliente in(1,2);
+g)select * from cliente where nome like "C%";
+h)select nome, telefone from cliente where cidade like "Criciúma";
+i)select nome, rg, cpf from cliente where nome like "%Fernandes%";
+j)select sum(saldoConta) from conta;
+k)select max(saldoConta) from conta;
+l)select min(saldoConta) from conta;
+m)select avg(saldoConta) from conta;
+
+
