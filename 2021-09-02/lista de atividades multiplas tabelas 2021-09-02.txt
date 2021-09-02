@@ -1,0 +1,6 @@
+a)select setor.nome, setor.telefone from setor, coordenador 
+where coordenador.nome like "Ana%" and coordenador.cod_coordenador = setor.cod_coordenador;
+b)select funcionario.nome, funcionario.cidade, funcionario.telefone from funcionario, cargo 
+where cargo.descricao like "%Recepcionista%" and funcionario.cod_cargo = cargo.cod_cargo;
+c)select funcionario.nome, funcionario.cpf, funcionario.rg, funcionario.cod_funcionario, setor.nome from funcionario, setor 
+where setor.nome = "PR" and funcionario.cod_setor = setor.cod_setor;
