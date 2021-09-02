@@ -1,0 +1,22 @@
+a)select * from empresa;
+b)select razao_social, cidade, telefone from empresa;
+c)select * from empresa where cnpj = 123;
+d)select nome, n_sala, telefone from setor;
+e)select nome, cod_setor, telefone from setor where cod_setor in (2,3);
+f)select cod_setor, nome from setor where n_sala = 1 and descricao like "R%";
+g)select * from coordenador where nome like "P%";
+h)select nome, salario from coordenador where cod_coordenador between 1 and 5 and salario > 4000;
+i)select nome, telefone from coordenador where nome like "%Paulo%" and salario between 3000 and 5000;
+j)select * from cargo where descricao like "S%";
+k)select descricao, sal_base from cargo where sal_base between 2000 and 3000;
+l)select sal_base, descricao from cargo where descricao like "%Recepcionista%" and sal_base between 3000 and 4000;
+m)select sum(salario) from coordenador;
+n)select max(sal_base) from cargo;
+o)select min(sal_base) from cargo;
+p)select avg(salario) from coordenador;
+q)select * from funcionario where nome like "M%" and cidade like "Criciumal";
+r)select nome, cidade, cpf from funcionario where cod_funcionario between 1 and 50 and estado = "SC";
+s)select nome, telefone from funcionario where cod_setor = 2 and cod_cargo = 2 and cidade like "Criciumal";
+
+
+
