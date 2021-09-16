@@ -1,0 +1,45 @@
+Verificador:
+select funcionario.nome,funcionario.cod_funcionario, setor.cod_setor, projeto.descrivao
+from funcionario, setor, projeto 
+where setor.cod_setor = projeto.cod_setor
+and funcionario.cod_funcionario = projeto.cod_funcionario;
+
+create table projeto(
+cod_projeto int(5) not null,
+descrivao varchar(50) not null,
+datainicio date not null,
+datafim date not null,
+valor float(10,2) not null,
+cod_funcionario int(5) not null,
+cod_setor int(5) not null,
+primary key(cod_projeto),
+foreign key(cod_funcionario) references funcionario(cod_funcionario),
+foreign key(cod_setor) references setor(cod_setor)
+);
+
+d)select projeto.descricao, projeto.datainicio, projeto.datafim from projeto, setor where setor.nome = "RH" and projeto.cod_setor = setor.cod_setor;
+
+e)select funcionario.nome, projeto.descricao, projeto.valor from projeto, funcionario where funcionario.nome like "Michel%" and projeto.cod_funcionario = funcionario.cod_funcionario;
+
+f)select projeto.descricao, projeto.datafim, projeto.valor from projeto, funcionario 
+where projeto.datainicio between "2021/08/01" and "2021/08/31"
+and funcionario.nome like "Ricardo%" and projeto.cod_funcionario = funcionario.cod_funcionario;
+
+g)select projeto.descricao, projeto.datainicio, projeto.datafim, projeto.valor, setor.nome from projeto, setor where projeto.valor>3000 
+and setor.nome = "FN" and projeto.cod_setor = setor.cod_setor;
+
+h)select funcionario.nome, projeto.cod_projeto, projeto.descricao, projeto.datainicio, projeto.valor from projeto, funcionario where
+projeto.datainicio between "2021/08/01" and "2021/09/30" and projeto.cod_funcionario = funcionario.cod_funcionario and
+funcionario.nome like "Michel%";
+
+i)select projeto.cod_projeto, projeto.descricao, projeto.datafim, projeto.valor from projeto, setor where projeto.valor between 2000 and 4000
+and projeto.datafim between "2021/09/01" and "2021/09/30" and setor.nome = "FN" and projeto.cod_setor = setor.cod_setor;
+
+j)select projeto.cod_projeto, projeto.descricao, projeto.valor from projeto, setor, funcionario where 
+projeto.datainicio between "2021/01/01" and "2021/12/31" and funcionario.nome like "Rafael%" and setor.nome = "FN" 
+and projeto.cod_setor = setor.cod_setor and projeto.cod_funcionario = funcionario.cod_funcionario;
+
+k)select projeto.cod_projeto, projeto.descricao, projeto.valor from projeto, setor, funcionario
+where projeto.valor>2000 and setor.nome like "RH" and funcionario.nome like "%Rosa%"
+and projeto.cod_setor = setor.cod_setor and projeto.cod_funcionario = funcionario.cod_funcionario;
+
