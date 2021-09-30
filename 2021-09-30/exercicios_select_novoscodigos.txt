@@ -1,0 +1,24 @@
+a)insert into prateleira(codprateleira, descricao, capacidade) values
+(6, "Prateleira 6", 350);
+b)insert into categoria(codcategoria, descricao, codprateleira) values
+(6, "Monografias", 6);
+c)update categoria set descricao="Artigos e Monografias" where codprateleira=6;
+d)update prateleira set capacidade=500 where codprateleira=6;
+e)select descricao, capacidade from prateleira;
+f)select codcategoria, descricao from categoria order by descricao;
+g)select cidade, estado from editora where pais like "Bra%il";
+h)select sum(capacidade) from prateleira;
+i)select count(codautor) from autor where cidade like"Rio de Janeiro"; 
+j)select count(codlivro) from livro;
+k)select distinct autor.nome from livro, autor where autor.codautor = livro.codautor;
+l)select distinct editora.nome from livro, editora where editora.codeditora = livro.codeditora;
+m)select autor.nome, count(livro.codautor) from autor, livro where autor.codautor = livro.codautor group by(autor.codautor);
+n)select editora.nome, count(livro.codeditora) from editora, livro where editora.codeditora = livro.codeditora group by(editora.codeditora);
+o)select livro.titulo, livro.ano, livro.nrpaginas, autor.nome, editora.nome 
+from livro, autor, editora 
+where autor.nome like "cec%lia%" and editora.nome like "Leya" and
+livro.codautor = autor.codautor and livro.codeditora = editora.codeditora;
+p)select livro.titulo, livro.ano, livro.nrpaginas 
+from livro, categoria, autor 
+where categoria.codcategoria = 4 and autor.nome like "Machado%"
+and livro.codcategoria=categoria.codcategoria and livro.codautor=autor.codautor;
