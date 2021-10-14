@@ -1,0 +1,72 @@
+insert into funcionarios (codfuncionario, nome, endereco, cidade, estado, fone, cargo, rg, cpf)values
+(
+001, "Pedro", "Rua Tal", "Criciúma", "SC", 55481234567, "Recepcionista", 12345678, 192837465010
+);
+
+insert into funcionarios (codfuncionario, nome, endereco, cidade, estado, fone, cargo, rg, cpf)values
+(
+002, "Joana", "Rua Qual", "Criciúma", "SC", 12345, "Diretora", 12323343, 132325465278
+);
+
+insert into funcionarios (codfuncionario, nome, endereco, cidade, estado, fone, cargo, rg, cpf)values
+(
+003, "Márcio", "Rua Aquela", "Forquilhinha", "SC", 6789, "Enfermeiro", 10293926, 182736109378
+);
+
+insert into especialidades (codespec, descricao)values
+(
+01, "Neurologista"
+);
+
+insert into especialidades (codespec, descricao)values
+(
+02, "Anestesista Geral"
+);
+
+insert into especialidades (codespec, descricao)values
+(
+03, "Cirurgião - Sistema Digestivo"
+);
+
+insert into planosaude (codplano, descricao, tipocobertura)values
+(
+01, "Plano Simples", "Ferimentos Leves"
+);
+
+insert into planosaude (codplano, descricao, tipocobertura)values
+(
+02, "Plano Normal", "Ferimentos Moderados"
+);
+
+insert into planosaude (codplano, descricao, tipocobertura)values
+(
+01, "Plano Completo", "Ferimentos Pesados"
+);
+
+insert into pacientes(codpaciente, nome, endereco, cidade, estado, fone, rg, cpf, codplano) values
+(
+01, "Jonas", "Rua Marsel", "Sombrio", "SC", 12312419571, 12245363, 1425356325, 01
+);
+
+insert into pacientes(codpaciente, nome, endereco, cidade, estado, fone, rg, cpf, codplano) values
+(
+02, "Jorge", "Rua Morris", "Criciúma", "SC", 43254609434, 12249488, 11284723984, 03
+);
+
+insert into pacientes(codpaciente, nome, endereco, cidade, estado, fone, rg, cpf, codplano) values
+(
+03, "Jair", "Rua Mato", "Morro da Fumaça k", "SC", 14233654352, 1242535, 0058763986, 02
+);
+
+insert into medicos(codmedico, nome, endereco, cidade, estado, fone, crm, codespec) values
+(
+01, "Marcelo", "rua AFIJwfi", "Criciúma", "SC", 137284628374612, 222141, 03
+);
+insert into medicos(codmedico, nome, endereco, cidade, estado, fone, crm, codespec) values
+(
+02, "Carlos", "rua Jasmin", "São Paulo", "SP", 35462715498273, 9152385, 02
+);
+insert into medicos(codmedico, nome, endereco, cidade, estado, fone, crm, codespec) values
+(
+03, "Vitor", "rua Macieiras do Norte", "Belo Horizonte", "MG", 78746352617289, 111332, 01
+);

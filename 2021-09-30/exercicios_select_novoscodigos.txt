@@ -22,3 +22,4 @@ p)select livro.titulo, livro.ano, livro.nrpaginas
 from livro, categoria, autor 
 where categoria.codcategoria = 4 and autor.nome like "Machado%"
 and livro.codcategoria=categoria.codcategoria and livro.codautor=autor.codautor;
+q)
