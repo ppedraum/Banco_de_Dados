@@ -1,0 +1,75 @@
+a) select * from funcionarios where cidade like "Criciúma";
+b)select codmedico, nome, crm, fone from medicos order by nome ASC;
+c)select * from funcionarios where cargo like "enfermeiro";
+d)select nome, fone, cidade from pacientes where estado = "SC";
+e)select count(codpaciente) from pacientes;
+f)select * from planosaude where tipocobertura like "Nacional";
+g)
+select medicos.* from medicos, especialidades 
+where especialidades.descricao like "Neurologista" 
+and medicos.codespec=especialidades.codespec;
+h)
+select codmedico, nome, crm from medicos where 
+codespec = 2 and cidade like "São Paulo";
+i)select count(codpaciente), codplano from pacientes group by codplano;
+j)
+select pacientes.codpaciente, pacientes.nome, pacientes.fone, planosaude.codplano, planosaude.descricao
+from pacientes, planosaude
+where planosaude.descricao like "%Normal" and tipocobertura like "%Regional" 
+and pacientes.codplano = planosaude.codplano;
+k)
+select pacientes.nome, consultas.dataconsulta, consultas.horaconsulta, consultas.codmedico from pacientes, consultas
+where year(consultas.dataconsulta)=2021 and pacientes.nome like "Jair" and pacientes.codpaciente = consultas.codpaciente;
+l)
+select consultas.* from consultas, pacientes 
+where consultas.dataconsulta between "2021/05/01" and "2021/11/30"
+and pacientes.nome like "Jorge" 
+and pacientes.codpaciente=consultas.codpaciente;
+m)
+select codconsulta, dataconsulta, horaconsulta, codpaciente, codmedico from consultas
+where dataconsulta="2022/01/05";
+n)
+select consultas.dataconsulta, consultas.horaconsulta, pacientes.nome, consultas.codmedico from pacientes, consultas
+where dataconsulta between "2021-05-01" and "2021-05-04" and pacientes.codpaciente=consultas.codpaciente;
+o)
+select consultas.dataconsulta, consultas.horaconsulta, pacientes.nome from pacientes, consultas, planosaude
+where consultas.dataconsulta between "2021-05-01" and "2021-05-31" and planosaude.descricao like "%Simples" 
+and pacientes.codpaciente=consultas.codpaciente and pacientes.codplano=planosaude.codplano;
+p)
+select pacientes.codpaciente, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome, pacientes.fone 
+from pacientes, consultas where consultas.codmedico = 1 and consultas.dataconsulta="2022-01-05"
+and consultas.codpaciente=pacientes.codpaciente;
+q)
+select consultas.codconsulta, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome, pacientes.fone
+from consultas, pacientes, medicos, especialidades
+where year(consultas.dataconsulta)=2021 
+and month(consultas.dataconsulta)=12
+and especialidades.codespec=4
+and consultas.codpaciente=pacientes.codpaciente
+and medicos.codespec=especialidades.codespec;
+r)
+select consultas.codconsulta, consultas.dataconsulta, consultas.horaconsulta
+from consultas, pacientes, medicos
+where medicos.nome like "Enrico Luiz%" and month(consultas.dataconsulta) between 08 and 12 and consultas.codpaciente = pacientes.codpaciente;
+s)
+select consultas.codconsulta, consultas.dataconsulta, consultas.horaconsulta
+from consultas, pacientes, medicos, especialidades
+where consultas.codpaciente = pacientes.codpaciente
+and pacientes.nome like "Jorge%"
+and especialidades.descricao like "Psiquiatra"
+and year(consultas.dataconsulta)=2021 
+and consultas.codpaciente=pacientes.codpaciente
+and medicos.codespec=especialidades.codespec
+and consultas.codmedico=medicos.codmedico;
+t)
+select consultas.codconsulta, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome 
+from consultas, pacientes, medicos, especialidades
+where month(consultas.dataconsulta)=12 
+and medicos.nome like "Enrico%" 
+and especialidades.descricao like "Psiquiatra"
+and consultas.codpaciente=pacientes.codpaciente;
+u)
+select pacientes.codpaciente, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome from consultas, pacientes, especialidades where
+year(consultas.dataconsulta)=2022 and month(consultas.dataconsulta)=01 and especialidades.descricao like "Cirurgião%Digestivo" and
+pacientes.codpaciente=consultas.codpaciente;
+
