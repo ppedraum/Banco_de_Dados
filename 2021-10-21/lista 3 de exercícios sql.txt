@@ -72,4 +72,11 @@ u)
 select pacientes.codpaciente, consultas.dataconsulta, consultas.horaconsulta, pacientes.nome from consultas, pacientes, especialidades where
 year(consultas.dataconsulta)=2022 and month(consultas.dataconsulta)=01 and especialidades.descricao like "Cirurgião%Digestivo" and
 pacientes.codpaciente=consultas.codpaciente;
+v)select pacientes.codpaciente, consultas.dataconsulta, pacientes.nome, pacientes.fone from pacientes, consultas, medicos where 
+year(consultas.dataconsulta)=2022 and month(consultas.dataconsulta)=01 and medicos.nome="Marcelo" and pacientes.codpaciente=consultas.codpaciente 
+and consultas.codmedico=medicos.codmedico;
+w)
+select pacientes.nome, consultas.codconsulta, consultas.dataconsulta, consultas.horaconsulta from consultas, pacientes, medicos, especialidades where
+pacientes.nome like "Jonas" and month(consultas.dataconsulta)=05 and year(consultas.dataconsulta)=2021 and especialidades.descricao like "Neurologista" and medicos.nome like "%Vitor"
+and consultas.codpaciente=pacientes.codpaciente and medicos.codmedico=consultas.codmedico and medicos.codespec=especialidades.codespec;
 

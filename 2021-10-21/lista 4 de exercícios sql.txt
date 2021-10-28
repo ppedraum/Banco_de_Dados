@@ -1,0 +1,40 @@
+a)
+select medicos.codmedico, medicos.nome from medicos inner join especialidades where especialidades.descricao like "%Cirurgião%" and
+medicos.cidade like "Criciúma" and medicos.codespec=especialidades.codespec;
+b)
+select pacientes.codpaciente, pacientes.nome, pacientes.fone from pacientes inner join planosaude where planosaude.descricao like "%Normal" and
+planosaude.tipocobertura like "Regional" and pacientes.codplano=planosaude.codplano;
+c)
+select medicos.codmedico, medicos.nome, medicos.fone, medicos.crm from medicos inner join especialidades where
+especialidades.descricao like "Anestesista%" and medicos.cidade like "Criciúma" or "Belo Horizonte;"
+d)
+select pacientes.nome, pacientes.fone, consultas.dataconsulta, consultas.horaconsulta from pacientes inner join consultas 
+where year(consultas.dataconsulta)=2021 and month(consultas.dataconsulta) between 1 and 5 and pacientes.codpaciente = consultas.codpaciente;
+e)
+select consultas.dataconsulta, consultas.horaconsulta, consultas.codpaciente, medicos.nome from
+consultas inner join medicos inner join pacientes where year(consultas.dataconsulta)=2021 and month(consultas.dataconsulta) between 1 and 9
+and pacientes.codpaciente=consultas.codpaciente and medicos.codmedico=consultas.codmedico;
+f)
+select pacientes.nome from pacientes inner join consultas where consultas.dataconsulta between "2021/05/01" and "2021/05/15"
+and consultas.sintomas like "Enxaqueca%" and pacientes.codpaciente=consultas.codpaciente;
+g)
+select pacientes.codpaciente, pacientes.nome, pacientes.fone from pacientes inner join consultas where year(consultas.dataconsulta)=2021 and
+consultas.sintomas like "Esquizofrenia" and consultas.medicacao like "Haloperidol" and pacientes.codpaciente=consultas.codpaciente;
+h)
+select pacientes.nome, pacientes.fone from pacientes left join consultas on pacientes.codpaciente=consultas.codpaciente where
+year(consultas.dataconsulta)!=2021
+union
+select pacientes.nome, pacientes.fone from pacientes right join consultas on pacientes.codpaciente=consultas.codpaciente where
+year(consultas.dataconsulta)!=2021;
+i)
+select funcionarios.nome, funcionarios.fone from funcionarios left join consultas on funcionarios.codfuncionario=consultas.codfuncionario
+where year(consultas.dataconsulta)!=2021
+union
+select funcionarios.nome, funcionarios.fone from funcionarios right join consultas on funcionarios.codfuncionario=consultas.codfuncionario
+where year(consultas.dataconsulta)!=2021;
+j)
+select medicos.codmedico, medicos.nome, medicos.crm from medicos left join consultas on medicos.codmedico=consultas.codmedico where
+year(consultas.dataconsulta)!=2021 and month(consultas.dataconsulta)!=12
+union
+select medicos.codmedico, medicos.nome, medicos.crm from medicos right join consultas on medicos.codmedico=consultas.codmedico where
+year(consultas.dataconsulta)!=2021 and month(consultas.dataconsulta)!=12;
