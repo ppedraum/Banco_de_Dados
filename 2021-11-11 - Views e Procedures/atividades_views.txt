@@ -1,0 +1,33 @@
+a)
+create view `mostrar_atendentes` as
+select * from funcionarios where cargo like 'atendente';
+b)
+create view `mostrar_clientes_criciuma` as
+select nome, cidade, estado, fone from clientes where cidade like 'crici%ma';
+c)
+create view `ordenar_classificacao_nome` as
+select classificacao from filmes order by titulo;
+d)
+create view `mostrar_comedia_disponivel` as
+select * from filmes where categoria like "%com%dia%" and status=1;
+e)
+create view `selecionar_carlos` as
+select clientes.nome, locacao.*  from locacao, clientes where clientes.nome like "Carlos" and year(locacao.data_loc)=2021 
+and month(locacao.data_loc)=04 and clientes.codcliente=locacao.codcliente;
+f)
+create view `devolucao_maisquecinquentamangos_junho` as
+select clientes.nome, locacao.* from locacao, clientes where month(data_dev)=06 and year(data_dev)=2021 and val_pago>50
+and clientes.codcliente=locacao.codcliente;
+g)
+create procedure `insert_filmes`()
+BEGIN
+insert into filmes()
+values (44110, "O HOMEM NAS TREVAS", "01:28:00", "14+", "Fede Alvarez", 1, "Suspense");
+END
+h)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `alterar_classificacao_filme`()
+BEGIN
+update filmes set classificacao="comedia" where codfilme=443;
+END
+i)
+
