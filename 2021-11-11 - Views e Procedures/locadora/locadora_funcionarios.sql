@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `filmes`
+-- Table structure for table `funcionarios`
 --
 
-DROP TABLE IF EXISTS `filmes`;
+DROP TABLE IF EXISTS `funcionarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `filmes` (
-  `codfilme` int NOT NULL,
-  `titulo` varchar(50) NOT NULL,
-  `tempoduracao` time NOT NULL,
-  `classificacao` char(3) NOT NULL,
-  `diretor` varchar(50) NOT NULL,
-  `status` bit(1) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
-  PRIMARY KEY (`codfilme`)
+CREATE TABLE `funcionarios` (
+  `codfuncionario` int NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `cidade` varchar(50) NOT NULL,
+  `estado` char(2) NOT NULL,
+  `fone` bigint NOT NULL,
+  `cargo` varchar(50) NOT NULL,
+  `salario` float(7,2) NOT NULL,
+  PRIMARY KEY (`codfuncionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `filmes`
+-- Dumping data for table `funcionarios`
 --
 
-LOCK TABLES `filmes` WRITE;
-/*!40000 ALTER TABLE `filmes` DISABLE KEYS */;
-INSERT INTO `filmes` VALUES (45,'JOKER','02:02:00','18+','Todd Philips',_binary '','Drama'),(443,'VINGADORES ULTIMATO','03:02:00','12+','Russo Brothers',_binary '\0','Ação'),(5254,'12 HOMENS E UM SEGREDO','01:57:00','12+','Steven Soderbergh',_binary '','Suspene'),(10000,'AS VIAJENS DE GULLIVER','01:25:00','L','Rob Letterman',_binary '','Comédia/Fantasia'),(44110,'O HOMEM NAS TREVAS','01:28:00','14+','Fede Alvarez',_binary '','Suspense'),(67327,'O CODIGO DA VINCI','02:29:00','14+','Ron Howard',_binary '\0','Suspense/Investigação');
-/*!40000 ALTER TABLE `filmes` ENABLE KEYS */;
+LOCK TABLES `funcionarios` WRITE;
+/*!40000 ALTER TABLE `funcionarios` DISABLE KEYS */;
+INSERT INTO `funcionarios` VALUES (2,'Armando','Criciúma','SC',56640159785,'Gerente',2000.00),(3,'Carmem','Criciúma','SC',90117203679,'Organizadora de DvD\'s',1600.68),(1000,'Róger','Criciúma','SC',56652941768,'Atendente',1500.35);
+/*!40000 ALTER TABLE `funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 17:20:58
+-- Dump completed on 2021-11-18 13:50:49

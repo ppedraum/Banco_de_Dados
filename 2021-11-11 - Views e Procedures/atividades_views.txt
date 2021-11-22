@@ -1,3 +1,4 @@
+//------------------------VIEWS----------------------------------//
 a)
 create view `mostrar_atendentes` as
 select * from funcionarios where cargo like 'atendente';
@@ -18,6 +19,9 @@ f)
 create view `devolucao_maisquecinquentamangos_junho` as
 select clientes.nome, locacao.* from locacao, clientes where month(data_dev)=06 and year(data_dev)=2021 and val_pago>50
 and clientes.codcliente=locacao.codcliente;
+//---------------------------------------------------------------//
+
+//------------------------PROCEDURES-----------------------------//
 g)
 create procedure `insert_filmes`()
 BEGIN
@@ -30,4 +34,8 @@ BEGIN
 update filmes set classificacao="comedia" where codfilme=443;
 END
 i)
-
+create procedure `update_diretor`()
+BEGIN
+update filmes set diretor='Arthur Paul' where codfilme=5254
+END
+//---------------------------------------------------------------//

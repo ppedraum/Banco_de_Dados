@@ -16,32 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `clientes`
+-- Table structure for table `locadora`
 --
 
-DROP TABLE IF EXISTS `clientes`;
+DROP TABLE IF EXISTS `locadora`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `clientes` (
-  `codcliente` int NOT NULL,
+CREATE TABLE `locadora` (
+  `codlocadora` int NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `cidade` varchar(50) NOT NULL,
-  `estado` char(2) NOT NULL,
-  `fone` bigint NOT NULL,
-  `cpf` bigint NOT NULL,
-  `status` bit(1) NOT NULL,
-  PRIMARY KEY (`codcliente`)
+  `total_sal` float(10,2) NOT NULL,
+  `total_fatur` float(10,2) NOT NULL,
+  PRIMARY KEY (`codlocadora`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `clientes`
+-- Dumping data for table `locadora`
 --
 
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'Pedro','Criciúma','SC',38933762059,469151669245,_binary ''),(2,'Rosângela','Araranguá','SC',44235541772,700055273026,_binary '\0'),(3,'Carlos','Curitiba','PA',63676789173,767984506146,_binary '\0'),(4,'Rosiane','Rio de Janeiro','RJ',99828756402,823961648805,_binary '\0'),(5,'Marcos','Itamarandiba','MG',27294639140,336877205408,_binary '');
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+LOCK TABLES `locadora` WRITE;
+/*!40000 ALTER TABLE `locadora` DISABLE KEYS */;
+INSERT INTO `locadora` VALUES (33423,'Marcelinho\'s House of Movies',0.00,0.00);
+/*!40000 ALTER TABLE `locadora` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 17:20:57
+-- Dump completed on 2021-11-18 13:50:49
